@@ -4,12 +4,52 @@ import pandas as pd
 import numpy as np
 
 # Load the trained pipeline
-try:
-    full_pipeline = joblib.load('full_pipeline.pkl')
-except FileNotFoundError:
-    st.error("Pipeline file not found. Make sure 'full_pipeline.pkl' is in the same directory.")
+import streamlit as st
+import joblib
+import pickle
+import os
+
+@st.cache_resource(show_spinner="Loading machine learning pipeline...")
+def load_pipeline_safely():
+    """Robust pipeline loading with multiple fallbacks"""
+    
+    # Try different file names and loading methods
+    file_attempts = [
+        ('full_pipeline.joblib', joblib.load),
+        ('full_pipeline_compressed.joblib', joblib.load),
+        ('full_pipeline_pickle.pkl', lambda f: pickle.load(open(f, 'rb'))),
+        ('full_pipeline_current.pkl', lambda f: pickle.load(open(f, 'rb'))),
+        ('full_pipeline.pkl', joblib.load)
+    ]
+    
+    for filename, loader in file_attempts:
+        if os.path.exists(filename):
+            try:
+                st.info(f"Attempting to load {filename}...")
+                pipeline = loader(filename)
+                st.success(f"Successfully loaded {filename}")
+                return pipeline
+            except Exception as e:
+                st.warning(f"Failed to load {filename}: {str(e)[:100]}...")
+                continue
+    
+    st.error("❌ Could not load any pipeline file.")
+    return None
+
+# Load pipeline
+full_pipeline = load_pipeline_safely()
+
+if full_pipeline is None:
+    st.error("""
+    **Pipeline loading failed. Please:**
+    1. Run the retraining script to generate compatible pipeline files
+    2. Ensure pipeline files are in the correct directory
+    3. Check file permissions
+    """)
     st.stop()
 
+# Your app continues here...
+st.success("Pipeline loaded successfully! App is ready.")
 # --- Website Title and Description ---
 st.title("Crop Production and Yield Prediction")
 st.markdown("""
@@ -876,4 +916,5 @@ if st.button("Predict"):
     st.header("Prediction Results")
     st.write(f"Predicted Production: {predicted_production:.2f}")
     st.write(f"Predicted Yield (Production/Area): {predicted_yield:.2f}")
+
 
