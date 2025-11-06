@@ -1,0 +1,11 @@
+
+    pandas
+    numpy
+    sklearn 
+    xgboost
+    joblib
+    streamlit
+    flask
+    google.colab.files
+
+    google.colab.userdata
