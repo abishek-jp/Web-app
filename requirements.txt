@@ -1,12 +1,6 @@
-
-    pandas
-    numpy
-    scikit-learn
-    xgboost
-    joblib
-    streamlit
-    flask
-    google.colab.files
-
-    google.colab.userdata
-
+streamlit
+joblib
+pandas
+numpy
+scikit-learn
+xgboost
