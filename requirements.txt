@@ -1,7 +1,7 @@
 
     pandas
     numpy
-    sklearn 
+    scikit-learn
     xgboost
     joblib
     streamlit
@@ -9,3 +9,4 @@
     google.colab.files
 
     google.colab.userdata
+
