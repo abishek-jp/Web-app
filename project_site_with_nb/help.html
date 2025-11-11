@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <title>Help</title>
+</head>
+
+<body class="popup">
+  <div class="popup-card">
+
+    <h2>Help</h2>
+
+    <h3>How to Execute the Project</h3>
+    <p>
+      1. Click the <b>download</b> button on the main page to download our Jupyter Notebook.<br>
+      2. Open the notebook using Jupyter Notebook or Jupyter Lab.<br>
+      3. Run each cell sequentially (data processing → encoding → training → prediction).<br>
+      4. The XGBoost model will be trained and ready to generate crop yield predictions.
+    </p>
+
+    <h3>Correct Flow to Execute</h3>
+    <ol>
+      <li>Download our notebook from the main page.</li>
+      <li>Load the dataset inside the notebook.</li>
+      <li>Apply OneHotEncoding to the categorical features (State, Season, Crop).</li>
+      <li>Split the dataset into training and testing sets.</li>
+      <li>Train the XGBoost model using the processed dataset.</li>
+      <li>Provide new input values for prediction.</li>
+      <li>Interpret the predicted crop production output.</li>
+    </ol>
+
+    <h3>How to Give Input</h3>
+    <p>
+      Inside our prediction cell, provide the following fields:<br>
+      <b>State</b> (e.g., Karnataka)<br>
+      <b>Season</b> (Kharif / Rabi / Whole Year)<br>
+      <b>Crop</b> (Rice, Wheat, Maize, etc.)<br>
+      <b>Area</b> (in hectares)<br><br>
+      Our notebook applies OneHotEncoding to the categorical fields and then feeds the processed values to the model.
+    </p>
+
+    <h3>What is Processed</h3>
+    <p>
+      • Our input fields are encoded using OneHotEncoder.<br>
+      • All encoded and numerical features form a combined feature vector.<br>
+      • This feature vector is passed into our XGBoostRegressor model.<br>
+      • The model uses boosted decision trees to calculate the predicted crop production.<br>
+    </p>
+
+    <h3>How to Interpret the Results</h3>
+    <p>
+      Our model outputs the predicted production value (in tons or kilograms depending on the dataset).<br>
+      A larger numerical value indicates a higher expected yield for the given inputs.<br>
+      By adjusting values such as State, Season, Crop, or Area, we can observe their impact on predicted production and compare different agricultural scenarios.<br>
+    </p>
+
+    <br>
+    <button onclick="window.close()" class="btn main-btn" style="width:150px;">Close</button>
+
+  </div>
+</body>
+</html>

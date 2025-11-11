@@ -1,0 +1,152 @@
+<!doctype html><html><head><meta charset='utf-8'/><link rel='stylesheet' href='assets/style.css'/><title>Learn</title></head>
+<body class='popup'><div class='popup-card'>
+<h2>Learn</h2>
+
+<h3>Prescribed Textbook Material</h3>
+<p>Crop Yield Prediction – Theory (Textbook Material)
+1. Introduction to Crop Yield Prediction
+
+Crop yield prediction is the process of estimating the amount of agricultural output (such as rice, wheat, millet, etc.) based on historical and environmental factors.
+Textbooks on Agricultural Informatics, Data Mining, Machine Learning, and Predictive Analytics describe crop yield prediction as a supervised regression problem, where:
+
+Inputs (features) → rainfall, fertilizer use, soil type, pesticides, crop type, temperature, area sown, etc.
+
+Output (label) → crop yield (often measured in tons/hectare or kg/hectare).
+
+Crop yield models are essential for:
+
+Food security planning
+
+Agricultural policy formation
+
+Smart farming
+
+Market forecasting
+
+2. Feature Engineering in Agricultural Prediction
+
+Standard agricultural ML literature states that crop yield depends on:
+
+✅ Climatic Features
+
+Annual rainfall
+
+Minimum / Maximum / Mean temperature
+
+Monsoon onset / retreat
+
+Humidity
+
+✅ Soil & Land Features
+
+Soil type (Black soil, Red soil, Alluvial, etc.)
+
+pH of soil
+
+Nitrogen, Phosphorus, Potassium levels
+
+Soil moisture
+
+✅ Cultivation Features
+
+Fertilizer usage
+
+Insecticide & pesticide usage
+
+Crop type (rice, wheat, maize…)
+
+Area under cultivation
+
+Our model uses:
+
+Crop name
+
+State
+
+Season
+
+Area
+
+Production
+
+These features match standard textbook features used in agricultural yield prediction with ML.
+
+3. Machine Learning Methods for Crop Yield Prediction
+
+Textbooks classify ML methods for crop prediction into:
+
+✅ Linear Regression Models
+
+Simple, interpretable, but cannot capture non-linear relationships.
+
+✅ Decision Tree Models
+
+Good for categorical features, capture non-linear patterns.
+
+✅ Ensemble Models (used in your project)
+
+Random Forest
+
+Gradient Boosting
+
+XGBoost (Extreme Gradient Boosting) ✔️ This is what our project uses.
+
+These models handle:
+
+Large datasets
+
+Nonlinear interactions
+
+Missing values
+
+Categorical variables (with encoding)
+
+4. XGBoost Algorithm (Prescribed content summary)
+
+XGBoost is an optimized implementation of Gradient Boosting.
+
+Key textbook principles:
+
+Models are built sequentially
+
+Each new tree corrects errors of previous trees
+
+Uses loss function + regularization (L1 & L2)
+
+Extremely fast due to parallelization + tree pruning
+
+Avoids overfitting via shrinkage (learning rate) and column sampling
+
+Why XGBoost is good for crop yield prediction:
+
+✅ Handles heterogeneous data (numbers + categories)
+✅ Works well even with noisy agricultural data
+✅ High accuracy compared to classical methods
+✅ Supports feature importance ranking
+
+5. One-Hot Encoding (as used in our notebook)
+
+Textbook explanation:
+Categorical features such as Season, Crop, State cannot be fed directly into ML models.
+
+One-Hot Encoding converts them into binary columns:
+
+Example:
+Season = “Kharif” → [1,0,0]
+Season = “Rabi” → [0,1,0]
+
+Our notebook uses SciKit-Learn OneHotEncoder, which is standard.</p>
+
+<h3>Animated Video</h3>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3CC4N4z3GJc" allowfullscreen></iframe>
+
+<h3>References</h3>
+<ul>
+<li>Han & Kamber — Data Mining</li>
+<li>Mitchell — Machine Learning</li>
+<li>Agricultural Informatics — IK Intl.</li>
+<li>Hastie et al. — ESL</li>
+</ul>
+
+<br><button onclick='window.close()' class='btn main-btn' style='width:150px;'>Close</button>
+</div></body></html>

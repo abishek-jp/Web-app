@@ -1,0 +1,21 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title></title><link rel="stylesheet" href="assets/style.css"/></head>
+<body>
+<div class="center-container">
+<button class="btn main-btn" onclick="window.open('learn.html','_blank','width=900,height=700')">learn</button>
+<button class="btn main-btn" onclick="window.open('developed_by.html','_blank','width=900,height=700')">Developed by</button>
+<button class="btn main-btn" onclick="window.open('help.html','_blank','width=900,height=700')">help</button>
+<button class="btn main-btn" id="downloadBtn">download</button>
+</div>
+
+<script>
+document.getElementById('downloadBtn').addEventListener('click', () => {
+    const a = document.createElement('a');
+    a.href = 'project_notebook.ipynb';
+    a.download = 'project_notebook.ipynb';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+});
+</script>
+
+</body></html>
